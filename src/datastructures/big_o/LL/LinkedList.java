@@ -21,6 +21,14 @@ public class LinkedList {
         tail = newNode;
         length = 1;
     }
+
+    public void printList() {
+        Node temp = head;
+        while(temp != null) {
+            System.out.println(temp.value);
+            temp = temp.next;
+        }
+    }
 }
 
 
