@@ -22,6 +22,57 @@ public class LinkedList {
         length = 1;
     }
 
+    public boolean set(int index, int value) {
+        Node temp = head;
+        int counter = 0;
+        if(index >= length || index < 0) {
+            return false;
+        }
+        while(counter <= index) {
+            if (counter == index) {
+                temp.value = value;
+                return true;
+            }
+            counter++;
+            temp = temp.next;
+        }
+        return false;
+    }
+
+    public Node get(int index) {
+        Node temp = head;
+        int counter = 0;
+        if(index >= length || index < 0) {
+            return null;
+        }
+        while(counter <= index) {
+            if (counter == index) {
+                return temp;
+            }
+            temp = temp.next;
+            counter++;
+        }
+        return temp;
+    }
+
+    public Node removeFirst() {
+        Node temp = head;
+        if (length == 0) {
+            return null;
+        }
+        if (length == 1) {
+            head = null;
+            tail = null;
+            length--;
+            return temp;
+        } else {
+            head = head.next;
+            temp.next = null;
+            length--;
+            return temp;
+        }
+    }
+
     public void prepend(int value) {
         Node newNode = new Node(value);
         if (length == 0) {
