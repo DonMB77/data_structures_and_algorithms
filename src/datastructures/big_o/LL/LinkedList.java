@@ -23,20 +23,12 @@ public class LinkedList {
     }
 
     public boolean set(int index, int value) {
-        Node temp = head;
-        int counter = 0;
-        if(index >= length || index < 0) {
+        Node temp = get(index);
+        if (temp == null) {
             return false;
         }
-        while(counter <= index) {
-            if (counter == index) {
-                temp.value = value;
-                return true;
-            }
-            counter++;
-            temp = temp.next;
-        }
-        return false;
+        temp.value = value;
+        return true;
     }
 
     public Node get(int index) {
