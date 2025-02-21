@@ -22,6 +22,33 @@ public class LinkedList {
         length = 1;
     }
 
+    public boolean hasLoop() {
+        Node slowPointer = head;
+        Node quickPointer = head;
+        Node iterationPointer = head;
+        if (slowPointer == null) {
+            return false;
+        }
+        if(slowPointer.next == null) {
+            return false;
+        }
+        while(true) {
+            if(quickPointer.next == null) {
+                return false;
+            }
+            iterationPointer = iterationPointer.next;
+            if(iterationPointer.next == null){
+                return false;
+            }
+            quickPointer = iterationPointer.next;
+            iterationPointer = iterationPointer.next;
+            slowPointer = slowPointer.next;
+            if(slowPointer == quickPointer){
+                return true;
+            }
+        }
+    }
+
     public Node findMiddleNode() {
         Node slowPointer = head;
         Node quickPointer = head;
@@ -32,7 +59,7 @@ public class LinkedList {
         if(slowPointer.next == null) {
             return slowPointer;
         }
-        while(quickPointer != null) {
+        while(true) {
             if(quickPointer.next == null) {
                 return slowPointer;
             }
@@ -44,7 +71,6 @@ public class LinkedList {
             iterationPointer = iterationPointer.next;
             slowPointer = slowPointer.next;
         }
-        return slowPointer;
     }
 
     public void reverse() {
