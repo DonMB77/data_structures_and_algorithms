@@ -22,6 +22,31 @@ public class LinkedList {
         length = 1;
     }
 
+    public Node findMiddleNode() {
+        Node slowPointer = head;
+        Node quickPointer = head;
+        Node iterationPointer = head;
+        if (slowPointer == null) {
+            return null;
+        }
+        if(slowPointer.next == null) {
+            return slowPointer;
+        }
+        while(quickPointer != null) {
+            if(quickPointer.next == null) {
+                return slowPointer;
+            }
+            iterationPointer = iterationPointer.next;
+            if(iterationPointer.next == null){
+                return slowPointer.next;
+            }
+            quickPointer = iterationPointer.next;
+            iterationPointer = iterationPointer.next;
+            slowPointer = slowPointer.next;
+        }
+        return slowPointer;
+    }
+
     public void reverse() {
         Node temp = head;
         head = tail;
