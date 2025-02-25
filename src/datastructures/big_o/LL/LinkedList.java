@@ -49,6 +49,25 @@ public class LinkedList {
         }
     }
 
+    public Node findKthFromEnd(int k) {
+        Node slow = head;
+        Node fast = head;
+
+        // move fast pointer k steps ahead
+        for (int iteration = 0; iteration < k; iteration++) {
+            if (fast == null) { // thus if k is out of bounds return null
+                return null;
+            }
+            fast = fast.next;
+        }
+        // move pointers until fast reached end
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow; // when fast hits the end, slow points at the kth node from the end
+    }
+
     public Node findMiddleNode() {
         Node slowPointer = head;
         Node quickPointer = head;
