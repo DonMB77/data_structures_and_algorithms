@@ -1,5 +1,7 @@
 package datastructures.big_o.LL;
 
+import java.util.HashSet;
+
 public class LinkedList {
 
     private Node head;
@@ -45,6 +47,29 @@ public class LinkedList {
             slowPointer = slowPointer.next;
             if(slowPointer == quickPointer){
                 return true;
+            }
+        }
+    }
+
+    public void removeDuplicates() {
+        if (head != null) {
+            HashSet<Integer> valuesInLL = new HashSet<Integer>();
+            Node current = head;
+            Node previous = null;
+            valuesInLL.add(current.value);
+            previous = current;
+            current = current.next;
+            while (current != null) {
+                if(valuesInLL.contains(current.value)) {
+                    previous.next = current.next;
+                    current = previous;
+                    length--;
+                    current = current.next;
+                } else {
+                    valuesInLL.add(current.value);
+                    previous = current;
+                    current = current.next;
+                }
             }
         }
     }
