@@ -6,9 +6,7 @@ public class Main {
 
         DoublyLinkedList myDLL = new DoublyLinkedList(7);
 
-        myDLL.printList();
-
-        myDLL.append(2);
+        System.out.println(myDLL.removeLast().value);
 
         myDLL.printList();
     }

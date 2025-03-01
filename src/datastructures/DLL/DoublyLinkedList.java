@@ -22,6 +22,23 @@ public class DoublyLinkedList {
         }
     }
 
+    public Node removeLast() {
+        if (length == 0) {
+            return null;
+        }
+        Node temp = tail;
+        if (length == 1) {
+            tail = null;
+            head = null;
+        } else {
+            tail = tail.prev;
+            tail.next = null;
+            temp.prev = null;
+        }
+        length--;
+        return temp;
+    }
+
     public void append(int value) {
         Node newNode = new Node(value);
         if (length == 0) {
