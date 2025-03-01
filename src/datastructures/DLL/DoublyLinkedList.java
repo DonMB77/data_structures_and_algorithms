@@ -22,6 +22,19 @@ public class DoublyLinkedList {
         }
     }
 
+    public void append(int value) {
+        Node newNode = new Node(value);
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+            length++;
+        }
+        tail.next = newNode;
+        newNode.prev = tail;
+        tail = newNode;
+        length++;
+    }
+
     public void getHead() {
         System.out.println("Head: " + head.value);
     }
