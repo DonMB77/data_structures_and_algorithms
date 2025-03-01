@@ -51,6 +51,16 @@ public class LinkedList {
         }
     }
 
+    public int binaryToDecimal() {
+        int num = 0;
+        Node iterator = head;
+        while (iterator != null) {
+            num = num * 2 + iterator.value;
+            iterator = iterator.next;
+        }
+        return num;
+    }
+
     public void removeDuplicates() {
         if (head != null) {
             HashSet<Integer> valuesInLL = new HashSet<Integer>();
