@@ -6,6 +6,10 @@ public class Main {
 
         DoublyLinkedList myDLL = new DoublyLinkedList(7);
 
-        myDLL.
+        myDLL.printList();
+
+        myDLL.append(2);
+
+        myDLL.printList();
     }
 }
