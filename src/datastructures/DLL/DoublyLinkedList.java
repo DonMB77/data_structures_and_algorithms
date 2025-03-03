@@ -32,6 +32,25 @@ public class DoublyLinkedList {
         }
     }
 
+    public Node remove(int index) {
+        if (index >= length || index < 0) {
+            return null;
+        }
+        if (index == length-1) {
+            removeLast();
+        }
+        if (index == 0) {
+            removeFirst();
+        }
+        Node temp = get(index);
+        temp.next.prev = temp.prev;
+        temp.prev.next = temp.next;
+        temp.next = null;
+        temp.prev = null;
+        length--;
+        return temp;
+    }
+
     public boolean insert(int index, int value) {
         if (index < 0 || index > length) {
             return false;

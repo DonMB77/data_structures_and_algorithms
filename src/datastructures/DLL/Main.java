@@ -12,7 +12,8 @@ public class Main {
         myDLL.append(6);
         myDLL.append(7);
 
-        myDLL.insert(1, 2);
+        System.out.println(myDLL.remove(6));
+        System.out.println(myDLL.remove(1));
         myDLL.printList();
     }
 }
