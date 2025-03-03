@@ -22,6 +22,28 @@ public class DoublyLinkedList {
         }
     }
 
+    public boolean isPalindrome() {
+        if (length == 0) {
+            return true;
+        }
+        if (length == 1) {
+            return true;
+        }
+        boolean isPalindrome = false;
+        Node iteratorBehind = tail;
+        Node iteratorFront = head;
+        for (int i = 0; length / 2 > i; i++) {
+            if (iteratorFront.value == iteratorBehind.value) {
+                isPalindrome = true;
+                iteratorFront = iteratorFront.next;
+                iteratorBehind = iteratorBehind.prev;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void reverse () {
         if (length <= 1) {
             return;

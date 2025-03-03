@@ -8,9 +8,9 @@ public class Main {
 
         myDLL.append(2);
         myDLL.append(3);
-        myDLL.append(4);
+        myDLL.append(2);
+        myDLL.append(1);
 
-        myDLL.reserve();
-        myDLL.printList();
+        System.out.println(myDLL.isPalindrome());
     }
 }
