@@ -51,6 +51,7 @@ public class DoublyLinkedList {
         newNode.next = after;
         before.next = newNode;
         after.prev = newNode;
+        length++;
         return true;
     }
 
