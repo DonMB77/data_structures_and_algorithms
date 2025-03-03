@@ -22,6 +22,26 @@ public class DoublyLinkedList {
         }
     }
 
+    public Node get(int index) {
+        if (index < 0 || index >= length) {
+            return null;
+        }
+        Node temp = head;
+        if (length / 2 < index) {
+            temp = tail;
+            for (int i = length-1; i > index; i--) {
+                temp = temp.prev;
+            }
+            return temp;
+        } else {
+            for (int iterator = 0; iterator < index; iterator++) {
+                temp = temp.next;
+            }
+            return temp;
+        }
+    }
+
+
     public Node removeFirst() {
         if (length == 0) {
             return null;
