@@ -10,6 +10,7 @@ public class Main {
         myDLL.append(5);
         myDLL.append(6);
 
-        System.out.println(myDLL.get(3).value);
+        myDLL.set(0, 1);
+        myDLL.printList();
     }
 }
