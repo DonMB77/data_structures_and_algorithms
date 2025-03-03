@@ -22,6 +22,22 @@ public class DoublyLinkedList {
         }
     }
 
+    public void reverse () {
+        if (length <= 1) {
+            return;
+        }
+        int tempValue = 0;
+        Node iteratorFront = head;
+        Node iteratorBehind = tail;
+        for (int i = 0; length / 2 > i; i++) {
+            tempValue = iteratorFront.value;
+            iteratorFront.value = iteratorBehind.value;
+            iteratorBehind.value = tempValue;
+            iteratorBehind = iteratorBehind.prev;
+            iteratorFront = iteratorFront.next;
+        }
+    }
+
     public void swapFirstLast() {
         if (length < 2) {
             return;
