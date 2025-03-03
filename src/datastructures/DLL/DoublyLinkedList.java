@@ -32,6 +32,28 @@ public class DoublyLinkedList {
         }
     }
 
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) {
+            return false;
+        }
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        if (index == length) {
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node before = get(index - 1);
+        Node after = before.next;
+        newNode.prev = before;
+        newNode.next = after;
+        before.next = newNode;
+        after.prev = newNode;
+        return true;
+    }
+
     public Node get(int index) {
         if (index < 0 || index >= length) {
             return null;
@@ -39,7 +61,7 @@ public class DoublyLinkedList {
         Node temp = head;
         if (length / 2 < index) {
             temp = tail;
-            for (int i = length-1; i > index; i--) {
+            for (int i = length - 1; i > index; i--) {
                 temp = temp.prev;
             }
             return temp;
@@ -70,7 +92,7 @@ public class DoublyLinkedList {
 
     public void prepend(int value) {
         Node newNode = new Node(value);
-        if(length == 0) {
+        if (length == 0) {
             head = newNode;
             tail = newNode;
         } else {
