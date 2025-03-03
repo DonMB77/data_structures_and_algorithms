@@ -22,6 +22,15 @@ public class DoublyLinkedList {
         }
     }
 
+    public void swapFirstLast() {
+        if (length < 2) {
+            return;
+        }
+        int tempHead = head.value;
+        head.value = tail.value;
+        tail.value = tempHead;
+    }
+
     public boolean set(int index, int value) {
         Node temp = get(index);
         if (temp != null) {
