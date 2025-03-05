@@ -15,6 +15,7 @@ public class Queue {
     class Node {
         Node next;
         int value;
+
         public Node(int value) {
             this.value = value;
         }
@@ -30,6 +31,23 @@ public class Queue {
             last = newNode;
         }
         length++;
+    }
+
+    public Node dequeue() {
+        if (length == 0) {
+            return null;
+        }
+        Node temp = first;
+        if (length == 1) {
+            first = null;
+            last = null;
+        } else {
+            first = first.next;
+            temp.next = null;
+        }
+        length--;
+        return temp;
+
     }
 
     public void printQueue() {
