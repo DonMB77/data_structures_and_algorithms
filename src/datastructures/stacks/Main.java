@@ -33,18 +33,30 @@ public class Main {
         return stack.isEmpty();
     }
 
+    public static StackAsArrayList<Integer> sortStack(StackAsArrayList<Integer> inputStack) {
+        StackAsArrayList<Integer> additionalStack = new StackAsArrayList<>();
+        while (!inputStack.isEmpty()) {
+            int temp = inputStack.pop();
+            while (!additionalStack.isEmpty() && additionalStack.peek() > temp) {
+                inputStack.push(additionalStack.pop());
+            }
+            additionalStack.push(temp);
+        }
+        while (!additionalStack.isEmpty()) {
+            inputStack.push(additionalStack.pop());
+        }
+        return inputStack;
+    }
+
     public static void main(String[] args) {
-        testAndPrint("()", true);
-        testAndPrint("()()", true);
-        testAndPrint("(())", true);
-        testAndPrint("()()()", true);
-        testAndPrint("(()())", true);
-        testAndPrint(")()(", false);
-        testAndPrint(")(", false);
-        testAndPrint("(()", false);
-        testAndPrint("))", false);
-        testAndPrint("(", false);
-        testAndPrint(")", false);
+        StackAsArrayList<Integer> stack = new StackAsArrayList<>();
+        stack.push(3);
+        stack.push(1);
+        stack.push(4);
+        stack.push(2);
+
+        sortStack(stack);
+        System.out.println(stack.getStackList());
     }
 
     public static void testAndPrint(String testStr, boolean expected) {
