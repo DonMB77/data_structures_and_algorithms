@@ -30,6 +30,20 @@ public class HashTable {
         }
     }
 
+    public void set(String key, int value) {
+        int index = hash(key);
+        Node newNode = new Node(key, value);
+        if (dataMap[index] == null) {
+            dataMap[index] = newNode;
+        } else {
+            Node temp = dataMap[index];
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+
     // private since this is only getting used by other methods within this class
     private int hash(String key) {
         int hash = 0;
